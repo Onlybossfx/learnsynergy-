@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ===== ESSENTIAL META TAGS ===== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ===== PRIMARY SEO META TAGS ===== -->
+    <title>LearnSynergy | Collaborative Learning Platform for Developers</title>
+    <meta name="description" content="LearnSynergy is a collaborative platform where developers learn together. Join study groups, share knowledge, and accelerate your learning through peer-to-peer collaboration.">
+    <meta name="keywords" content="learn programming, developer community, coding collaboration, peer learning, study groups, web development, programming help, learn to code">
+    <meta name="author" content="LearnSynergy">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <!-- ===== OPEN GRAPH / SOCIAL MEDIA META TAGS ===== -->
+    <meta property="og:title" content="LearnSynergy | Learn Together, Grow Together">
+    <meta property="og:description" content="Join thousands of developers learning collaboratively. Share knowledge, solve problems together, and accelerate your coding journey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://learnsynergy.app">
+    <meta property="og:image" content="https://learnsynergy.app/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="LearnSynergy - Collaborative Learning Platform">
+    <meta property="og:site_name" content="LearnSynergy">
+    
+    <!-- ===== TWITTER CARD META TAGS ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LearnSynergy | Collaborative Learning Platform">
+    <meta name="twitter:description" content="The platform where developers teach each other and grow together. Join our community today.">
+    <meta name="twitter:image" content="https://learnsynergy.app/assets/twitter-card.png">
+    <meta name="twitter:site" content="@learnsynergy">
+    
+    <!-- ===== FAVICON & APP ICONS ===== -->
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#7C3AED">
+    
+    <!-- ===== SCHEMA.ORG STRUCTURED DATA ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LearnSynergy",
+        "description": "A collaborative learning platform for developers to learn together through study groups, peer programming, and knowledge sharing.",
+        "url": "https://learnsynergy.app",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "LearnSynergy",
+            "url": "https://learnsynergy.app"
+        },
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Developers, Programmers, Students"
+        },
+        "featureList": [
+            "Collaborative Study Groups",
+            "Peer Programming Sessions",
+            "Knowledge Sharing Timeline",
+            "Real-time Code Collaboration",
+            "Learning Progress Tracking"
+        ]
+    }
+    </script>
+    
+    <!-- ===== FONT & ICON IMPORTS ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ===== CSS FILES ===== -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/loader.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    
+    <!-- ===== PRELOAD CRITICAL RESOURCES ===== -->
+    <link rel="preload" href="/assets/logo.svg" as="image" type="image/svg+xml">
+    
+    <!-- ===== NOSCRIPT FALLBACK ===== -->
+    <noscript>
+        <link rel="stylesheet" href="/styles/noscript.css">
+    </noscript>
+</head>
+<body>
+    <!-- ===== NOSCRIPT WARNING ===== -->
+    <noscript>
+        <div class="no-js-warning">
+            <strong>JavaScript is disabled</strong> - Some features of LearnSynergy require JavaScript. Please enable it for the best experience.
+        </div>
+    </noscript>
+
+    <!-- ===== LOADER SCREEN ===== -->
+    <div id="loader" class="loader-container">
+        <div class="logo-loader">
+            <!-- Logo will be injected via JavaScript -->
+        </div>
+        
+        <div class="loading-text">
+            Initializing LearnSynergy
+            <span class="loading-dots"></span>
+        </div>
+        
+        <div class="loader-progress">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+        
+        <div class="loading-steps">
+            <div id="step1" class="step active">
+                <div class="step-dot"></div>
+                <i class="fas fa-check step-check"></i>
+                <span>Loading core</span>
+            </div>
+            <div id="step2" class="step">
+                <div class="step-dot"></div>
+                <i class="fas fa-check step-check"></i>
+                <span>Connecting peers</span>
+            </div>
+            <div id="step3" class="step">
+                <div class="step-dot"></div>
+                <i class="fas fa-check step-check"></i>
+                <span>Ready to learn</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MAIN LANDING PAGE ===== -->
+    <div id="landingPage" class="landing-page">
+        <!-- === SKIP TO MAIN CONTENT LINK === -->
+        <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+        <!-- === NAVIGATION === -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="logo">
+                    <div class="logo-icon">LS</div>
+                    <span>LearnSynergy</span>
+                </a>
+                
+                <!-- Mobile menu button -->
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#how-it-works" class="nav-link">How it Works</a>
+                    <a href="#testimonials" class="nav-link">Success Stories</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                    <button id="loginBtn" class="btn btn-outline">Log In</button>
+                    <button id="getStartedBtn" class="btn btn-primary">Get Started</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- === HERO SECTION === -->
+        <main id="main-content">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <header>
+                            <h1 class="hero-title">
+                                <span class="gradient-text">Learn Together,</span>
+                                <span class="gradient-text">Grow Together</span>
+                            </h1>
+                            <p class="hero-subtitle">
+                                Join a synergistic community where developers teach each other, 
+                                share knowledge, and accelerate learning through collaboration.
+                                <strong>Learn 2.5x faster</strong> with peer-powered education.
+                            </p>
+                        </header>
+                        
+                        <div class="hero-buttons">
+                            <button id="joinFreeBtn" class="btn btn-primary btn-large">
+                                <i class="fas fa-rocket"></i>
+                                Start Learning Free
+                            </button>
+                            <button id="watchDemoBtn" class="btn btn-outline btn-large">
+                                <i class="fas fa-play-circle"></i>
+                                Watch Demo
+                            </button>
+                        </div>
+                        
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <div class="stat-number">2.5x</div>
+                                <div class="stat-label">Faster Learning</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Active Groups</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">85%</div>
+                                <div class="stat-label">Retention Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="code-visual">
+                            <div class="code-window">
+                                <div class="window-header">
+                                    <div class="window-dots">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                    </div>
+                                    <div class="window-title">learn_together.js</div>
+                                </div>
+                                <div class="code-content">
+                                    <pre><code>// Where learning meets collaboration
+const learnSynergy = {
+  philosophy: "Together we learn better",
+  features: ["peer-timeline", "study-rooms", 
+             "code-exchange", "skill-sharing"],
+  join: (learner) => {
+    learner.knowledge *= 2;
+    learner.network.expand();
+    return "synergy activated!";
+  }
+};
+
+// Start your collaborative journey
+learnSynergy.join(you);</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- === FEATURES SECTION === -->
+            <section id="features" class="features">
+                <div class="container">
+                    <header class="section-header">
+                        <h2 class="section-title">Experience Learning <span class="gradient-text">Synergy</span></h2>
+                        <p class="section-subtitle">Powerful features designed to accelerate your learning through collaboration</p>
+                    </header>
+                    
+                    <div class="features-grid">
+                        <article class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="feature-title">Live Study Groups</h3>
+                            <p class="feature-description">Join real-time coding sessions with peers. Share screens, collaborate on problems, and learn together in interactive rooms.</p>
+                            <a href="https://app.learnsynergy.com/study-groups" class="feature-link" target="_blank">
+                                Join a Group <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </article>
+                        
+                        <article class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="feature-title">Pair Programming</h3>
+                            <p class="feature-description">Team up with another developer to solve coding challenges together. Real-time code editor with video chat included.</p>
+                            <a href="https://app.learnsynergy.com/pair-programming" class="feature-link" target="_blank">
+                                Find a Partner <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </article>
+                        
+                        <article class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h3 class="feature-title">Collaborative Projects</h3>
+                            <p class="feature-description">Work on real projects with team members. Build your portfolio while learning practical development skills.</p>
+                            <a href="https://app.learnsynergy.com/projects" class="feature-link" target="_blank">
+                                Browse Projects <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </article>
+                        
+                        <article class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3 class="feature-title">Coding Challenges</h3>
+                            <p class="feature-description">Compete with peers in daily coding challenges. Earn points, badges, and climb the leaderboard.</p>
+                            <a href="https://app.learnsynergy.com/challenges" class="feature-link" target="_blank">
+                                View Challenges <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- === HOW IT WORKS SECTION === -->
+            <section id="how-it-works" class="how-it-works">
+                <div class="container">
+                    <header class="section-header">
+                        <h2 class="section-title">How LearnSynergy <span class="gradient-text">Works</span></h2>
+                        <p class="section-subtitle">Get started in 3 simple steps and transform your learning journey</p>
+                    </header>
+                    
+                    <div class="steps">
+                        <article class="step-card">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Create Your Profile</h3>
+                                <p class="step-description">Set up your learning profile with your skills, interests, and goals. We'll match you with relevant study groups and peers.</p>
+                            </div>
+                        </article>
+                        
+                        <article class="step-card">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Join Study Groups</h3>
+                                <p class="step-description">Browse or create study groups based on topics, skill levels, or learning goals. Engage in focused, collaborative learning sessions.</p>
+                            </div>
+                        </article>
+                        
+                        <article class="step-card">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <h3 class="step-title">Collaborate & Grow</h3>
+                                <p class="step-description">Share knowledge, work on projects together, give and receive feedback. Watch your skills grow exponentially through synergy.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- === TESTIMONIALS SECTION === -->
+            <section id="testimonials" class="testimonials">
+                <div class="container">
+                    <header class="section-header">
+                        <h2 class="section-title">Success <span class="gradient-text">Stories</span></h2>
+                        <p class="section-subtitle">Hear from developers who accelerated their learning with LearnSynergy</p>
+                    </header>
+                    
+                    <div class="testimonials-grid">
+                        <article class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <blockquote>
+                                    <p>"LearnSynergy helped me land my first developer job in 3 months. The collaborative projects were invaluable."</p>
+                                </blockquote>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AS</div>
+                                <div class="author-info">
+                                    <div class="author-name">Alex Smith</div>
+                                    <div class="author-role">Frontend Developer</div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <blockquote>
+                                    <p>"I went from beginner to building full-stack apps. The peer feedback system is revolutionary."</p>
+                                </blockquote>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MJ</div>
+                                <div class="author-info">
+                                    <div class="author-name">Maria Johnson</div>
+                                    <div class="author-role">Full-stack Developer</div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <blockquote>
+                                    <p>"The study groups kept me accountable and motivated. I learned more in 2 months than 6 months solo."</p>
+                                </blockquote>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">DR</div>
+                                <div class="author-info">
+                                    <div class="author-name">David Rodriguez</div>
+                                    <div class="author-role">Backend Developer</div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- === PRICING SECTION === -->
+            <section id="pricing" class="features">
+                <div class="container">
+                    <header class="section-header">
+                        <h2 class="section-title">Simple, Transparent <span class="gradient-text">Pricing</span></h2>
+                        <p class="section-subtitle">Choose the plan that fits your learning journey</p>
+                    </header>
+                    
+                    <div class="features-grid">
+                        <article class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3 class="feature-title">Free Tier</h3>
+                            <p class="feature-description">Perfect for getting started. Join 2 study groups, access basic challenges, and connect with up to 10 peers.</p>
+                            <div class="pricing-price">$0<span>/month</span></div>
+                            <a href="https://app.learnsynergy.com/signup" class="btn btn-outline" target="_blank">
+                                Get Started Free
+                            </a>
+                        </article>
+                        
+                        <article class="feature-card highlight">
+                            <div class="feature-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3 class="feature-title">Pro Learner</h3>
+                            <p class="feature-description">Unlimited study groups, priority matching, advanced projects, and detailed progress analytics.</p>
+                            <div class="pricing-price">$10<span>/year</span></div>
+                            <a href="https://app.learnsynergy.com/upgrade" class="btn btn-primary" target="_blank">
+                                Start Pro Trial
+                            </a>
+                        </article>
+                        
+                        <article class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="feature-title">Teams & Bootcamps</h3>
+                            <p class="feature-description">Custom solutions for teams, schools, and bootcamps. Admin dashboard, group management, and reporting.</p>
+                            <div class="pricing-price">Custom</div>
+                            <a href="mailto:sales@learnsynergy.com" class="btn btn-outline">
+                                Contact Sales
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- === CTA SECTION === -->
+            <section class="cta">
+                <div class="container">
+                    <div class="cta-content">
+                        <h2 class="cta-title">Ready to Transform Your Learning?</h2>
+                        <p class="cta-subtitle">Join thousands of developers who are accelerating their growth through collaborative learning.</p>
+                        
+                        <form id="earlyAccessForm" class="access-form">
+                            <div class="input-group">
+                                <input 
+                                    type="email" 
+                                    id="emailInput" 
+                                    placeholder="Enter your email address" 
+                                    required
+                                >
+                                <button type="submit" class="btn btn-primary">
+                                    Get Early Access
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <p class="form-note">Free forever for individual learners. No credit card required.</p>
+                        </form>
+                        
+                        <div class="trust-signals">
+                            <div class="trust-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>100% Secure & Private</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-credit-card"></i>
+                                <span>No Credit Card Required</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-calendar-times"></i>
+                                <span>Cancel Anytime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- === FOOTER === -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <a href="/" class="logo">
+                            <div class="logo-icon">LS</div>
+                            <span class="foot">LearnSynergy</span>
+                        </a>
+                        <p class="footer-tagline">Where individual learning becomes collective growth.</p>
+                        <div class="social-links">
+                            <a href="https://github.com/learnsynergy" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com/learnsynergy" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://discord.gg/learnsynergy" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/learnsynergy" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h3 class="link-group-title">Platform</h3>
+                            <ul class="link-list">
+                                <li><a href="#features">Features</a></li>
+                                <li><a href="#how-it-works">How it Works</a></li>
+                                <li><a href="#pricing">Pricing</a></li>
+                                <li><a href="#testimonials">Success Stories</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="link-group">
+                            <h3 class="link-group-title">Resources</h3>
+                            <ul class="link-list">
+                                <li><a href="https://blog.learnsynergy.com" target="_blank">Blog</a></li>
+                                <li><a href="https://docs.learnsynergy.com" target="_blank">Documentation</a></li>
+                                <li><a href="https://learnsynergy.com/tutorials" target="_blank">Tutorials</a></li>
+                                <li><a href="https://community.learnsynergy.com" target="_blank">Community</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="link-group">
+                            <h3 class="link-group-title">Company</h3>
+                            <ul class="link-list">
+                                <li><a href="https://learnsynergy.com/about" target="_blank">About Us</a></li>
+                                <li><a href="https://learnsynergy.com/careers" target="_blank">Careers</a></li>
+                                <li><a href="mailto:contact@learnsynergy.com">Contact</a></li>
+                                <li><a href="https://learnsynergy.com/privacy" target="_blank">Privacy Policy</a></li>
+                                <li><a href="https://learnsynergy.com/terms" target="_blank">Terms of Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; <span id="currentYear">2024</span> LearnSynergy. Synergizing developer education worldwide.</p>
+                    <p>This is a learning project built with HTML, CSS & JavaScript. All trademarks and logos are property of their respective owners.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===== MODAL TEMPLATES ===== -->
+    
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Welcome to LearnSynergy
+                </h3>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message">Sign in to access your learning dashboard, study groups, and timeline.</p>
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="loginPassword" placeholder="••••••••" required>
+                            <button type="button" id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #666;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox">
+                            Remember me
+                        </label>
+                        <a href="#" id="forgotPasswordLink" class="forgot-password">Forgot password?</a>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="createAccountBtn" class="modal-btn modal-btn-secondary">Create Account</button>
+                <button id="signInBtn" class="modal-btn modal-btn-primary">Sign In</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-user-plus"></i>
+                    Create Account
+                </h3>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message">Join thousands of developers learning together.</p>
+                <form id="signupForm" class="login-form">
+                    <div class="form-group">
+                        <label for="signupUsername">Username</label>
+                        <input type="text" id="signupUsername" placeholder="Choose a username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="signupPassword" placeholder="••••••••" required>
+                            <button type="button" id="toggleSignupPassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #666;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength" style="margin-top: 8px;">
+                            <div class="strength-bar" style="height: 4px; background: #e5e7eb; border-radius: 2px; overflow: hidden;">
+                                <div class="strength-bar" style="height: 100%; width: 0%; background: #ef4444; transition: width 0.3s;"></div>
+                            </div>
+                            <div class="strength-text" style="font-size: 12px; color: #6b7280; margin-top: 4px;">
+                                Password strength: <span>None</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="termsAgreement" required>
+                            I agree to <a href="https://learnsynergy.com/terms" target="_blank">Terms</a> & <a href="https://learnsynergy.com/privacy" target="_blank">Privacy</a>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="haveAccountBtn" class="modal-btn modal-btn-secondary">Have Account?</button>
+                <button id="createAccountBtn2" class="modal-btn modal-btn-primary">Create Account</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-key"></i>
+                    Reset Password
+                </h3>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message">Enter your email address and we'll send you a link to reset your password.</p>
+                <form id="forgotPasswordForm" class="login-form">
+                    <div class="form-group">
+                        <label for="resetEmail">Email Address</label>
+                        <input type="email" id="resetEmail" placeholder="you@example.com" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelResetBtn" class="modal-btn modal-btn-secondary">Cancel</button>
+                <button id="sendResetLinkBtn" class="modal-btn modal-btn-primary">Send Reset Link</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Modal -->
+    <div id="demoModal" class="modal demo-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-play-circle"></i>
+                    LearnSynergy Demo
+                </h3>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message">See the power of collaborative learning in action:</p>
+                
+                <div class="video-placeholder">
+                    <i class="fas fa-video"></i>
+                    <p>Live Demo Tour</p>
+                    <small>See how LearnSynergy works</small>
+                </div>
+                
+                <div class="modal-highlight">
+                    <strong>The LearnSynergy Effect:</strong>
+                    <p>When learners collaborate, knowledge multiplies exponentially.</p>
+                </div>
+                
+                <div class="demo-features">
+                    <div class="demo-feature">
+                        <i class="fas fa-users"></i>
+                        <span>Live Study Groups</span>
+                    </div>
+                    <div class="demo-feature">
+                        <i class="fas fa-code"></i>
+                        <span>Pair Programming</span>
+                    </div>
+                    <div class="demo-feature">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Collaborative Projects</span>
+                    </div>
+                    <div class="demo-feature">
+                        <i class="fas fa-trophy"></i>
+                        <span>Coding Challenges</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-primary" onclick="window.open('https://app.learnsynergy.com/demo', '_blank')">Watch Full Demo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal success-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-check-circle"></i>
+                    Success!
+                </h3>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p class="success-message">You've been added to the LearnSynergy early access list!</p>
+                <div class="success-email" id="successEmail"></div>
+                <p>We'll send you an invitation as soon as we launch the beta version.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="successOkBtn" class="modal-btn modal-btn-primary">Got It!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal success-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-exclamation-circle"></i>
+                    Oops!
+                </h3>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <p class="success-message" id="errorMessage">Something went wrong. Please try again.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-primary">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="modal success-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    Processing
+                </h3>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <p class="success-message" id="loadingMessage">Please wait...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT FILES ===== -->
+    <script src="scripts/landing.js" defer></script>
+</body>
+</html>
